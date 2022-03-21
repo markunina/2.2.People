@@ -28,6 +28,7 @@ public class Main {
         List<String> peopleForWork = persons.stream()
                 .filter(x -> x.getAge() >= 18)
                 .filter(x -> (x.getSex() == Sex.MAN && x.getAge() < 65) || (x.getSex() == Sex.WOMAN && x.getAge() < 60))
+                .filter(x -> x.getEducation() == Education.HIGHER)
                 .sorted(Comparator.comparing(x -> x.getFamily()))
                 .map(x -> x.getFamily()).collect(Collectors.toList());
         System.out.println(peopleForWork);
